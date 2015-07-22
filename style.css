@@ -17,7 +17,6 @@ body     { padding-bottom:50px; }
 
 .time-slot input:checked ~ label { 
   background:#f2dede; 
-  cursor:not-allowed;
   animation:flashBooked 0.5s ease; 
   -moz-animation:flashBooked 0.5s ease; 
   -webkit-animation:flashBooked 0.5s ease; 
