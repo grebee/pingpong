@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="style.css">
     <!-- JS -->
     <!-- load Angular, Firebase, Firebase Angular Library, and custom app.js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0/angular.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/1.1.1/firebase.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
@@ -17,30 +19,78 @@
 </head>
 
 <body>
-colton
-    <div class="container" ng-app="scheduleApp" ng-controller="mainController">
+    <div class="container-fluid" ng-app="scheduleApp" ng-controller="mainController" id="mainController">
+
         <div class="page-header text-center">
             <h1>Schedule Cafeteria Ping Pong Table </h1>
             <p>Idea by Felicia Valladares</p>
         </div>
-        <p class="text-center">What time would you like to ping it up?
-            <br><strong class="text-info">Quick! Other people are booking times too!</strong></p>
-        <div class="row times">
-            <div class="col-xs-4 text-center" ng-repeat="day in days">
-                <h2>{{ day.name }}</h2>
-                <div class="time-slot" ng-repeat="slot in day.slots">
-                    <input type="checkbox" id="{{ day.name }}-{{ $index }}" ng-model="slot.booked">
-                    <label for="{{ day.name }}-{{ $index }}">{{ slot.time }}
-                        <br>
-                        <!-- <span ng-if="slot.booked">Booked</span>
-          <span ng-if="!slot.booked">Available</span> -->
-                    </label>
+
+        <div class="tabbable">
+            <ul class="nav nav-pills nav-justified" id="myTab">
+                <li class="active" ng-click="setBinding('pingpong')"><a data-target="#ping-pong" data-toggle="tab">Ping Pong</a></li>
+                <li ng-click="setBinding('pingpongcafeteria')"><a data-target="#ping-pong-cafeteria" data-toggle="tab">Ping Pong Cafeteria</a></li>
+                <li ng-click="setBinding('fusbol')"><a data-target="#fusbol" data-toggle="tab">Fusbol</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="ping-pong">
+                  <h1 class="text-center">Ping Pong</h1>
+                  <div class="row">
+
+                      <div class="col-xs-4 text-center">
+                          <h2>{{ today }}</h2>
+                          <div class="time-slot" ng-repeat="slot in pingpong">
+                              <input type="checkbox" id="{{ slot.name }}-{{ $index }}" ng-model="slot.booked">
+                              <label for="{{ slot.name }}-{{ $index }}">{{ slot.time }}
+                              </label>
+                          </div>
+                      </div>
+                      <div class="col-xs-4 text-center"></div>
+                      <div class="col-xs-4 text-center"></div>
+                  </div>
+
+                </div>
+                
+                <div class="tab-pane" id="ping-pong-cafeteria">
+                <h1 class="text-center">Ping Pong Cafeteria</h1>
+                <div class="row">
+                      <div class="col-xs-4 text-center"></div>
+                      <div class="col-xs-4 text-center">
+                          <h2>{{ today }}</h2>
+                          <div class="time-slot" ng-repeat="slot in pingpongcafeteria">
+                              <input type="checkbox" id="{{ slot.name }}-{{ $index }}" ng-model="slot.booked">
+                              <label for="{{ slot.name }}-{{ $index }}">{{ slot.time }}
+                              </label>
+                          </div>
+                      </div>
+                      <div class="col-xs-4 text-center"></div>
+                  </div>
+
+                </div>
+                
+                <div class="tab-pane" id="fusbol">
+                <h1 class="text-center">Fusbol Table</h1>
+                <div class="row">
+                      <div class="col-xs-4 text-center"></div>
+                      <div class="col-xs-4 text-center"></div>
+                      <div class="col-xs-4 text-center">
+                          <h2>{{ today }}</h2>
+                          <div class="time-slot" ng-repeat="slot in fusbol">
+                              <input type="checkbox" id="{{ slot.name }}-{{ $index }}" ng-model="slot.booked">
+                              <label for="{{ slot.name }}-{{ $index }}">{{ slot.time }}
+                              </label>
+                          </div>
+                      </div>
+                  </div>
                 </div>
             </div>
         </div>
-        <p class="text-center">
-            <a href="#" ng-click="reset()" class="btn btn-primary">Reset</a>
-        </p>
+
+
+    </div>
+    <p class="text-center">
+        <a href="#" ng-click="reset()" class="btn btn-primary">Reset</a>
+    </p>
     </div>
 </body>
 
