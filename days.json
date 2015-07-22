@@ -1,0 +1,39 @@
+{
+  "monday": {
+    "name": "Monday",
+    "slots": {
+      "900": {
+        "time": "9:00am",
+        "booked": false
+      },
+      "915": {
+        "time": "9:15am",
+        "booked": false
+      },
+      "930": {
+        "time": "9:30am",
+        "booked": false
+      },
+      "945": {
+        "time": "9:45am",
+        "booked": false
+      },
+      "1000": {
+        "time": "10:00sm",
+        "booked": false
+      },
+      "300": {
+        "time": "3:00pm",
+        "booked": false
+      },
+      "500": {
+        "time": "5:00pm",
+        "booked": false
+      },
+      "700": {
+        "time": "7:00pm",
+        "booked": false
+      }
+	  }
+  }
+}
