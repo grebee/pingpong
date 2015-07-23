@@ -29,7 +29,7 @@
                   <h3>{{ day.name }}</h3>
                 </div>
 
-                <div class="time-slot" ng-repeat="slot in day.slots">
+                <div class="time-slot text-center" ng-repeat="slot in day.slots">
                     <input type="checkbox" id="{{ day.name }}-{{ $index }}" ng-model="slot.booked">
                     <label for="{{ day.name }}-{{ $index }}">{{ slot.time }}
                         <br>

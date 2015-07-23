@@ -5,8 +5,10 @@ body     { padding-bottom:50px; }
 .time-slot        {  }
 .time-slot input   { display:none; }
 .time-slot label   { 
-  padding:10px 20px; 
+  padding:10px 10px; 
   color:#FFF; 
+  font-family:verdana;
+  width: 95px;
   cursor:pointer; 
   background:#EEE; 
   border-radius:5px; 
